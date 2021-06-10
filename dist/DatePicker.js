@@ -151,13 +151,13 @@ export default function DatePickerDist({
     className: styles.buttonLeft,
     style: buttonColor,
     onClick: prevWeek
-  }, React.createElement("<ArrowForwardIosIcon/>"))), renderDays(), /*#__PURE__*/React.createElement("div", {
+  }, React.createElement(ArrowBackIosIcon, {}) )), renderDays(), /*#__PURE__*/React.createElement("div", {
     className: styles.buttonWrapper
   }, /*#__PURE__*/React.createElement("button", {
     className: styles.buttonRight,
     style: buttonColor,
     onClick: nextWeek
-  }, React.createElement("<ArrowForwardIosIcon/>"))));
+  }, React.createElement(ArrowForwardIosIcon, {}))));
 }
 /*more pictures
 * example code sandbox

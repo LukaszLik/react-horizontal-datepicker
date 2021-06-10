@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import DatePicker from "./components/DatePicker";
+import DatePicker from "./components/DatePicker2";
 
 function App() {
     const selectedDay = (val) =>{
