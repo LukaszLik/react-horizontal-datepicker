@@ -124,11 +124,11 @@ export default function DatePicker({endDate, selectDate, getSelectedDay, color, 
     return (
         <div className={styles.container}>
             <div className={styles.buttonWrapper}>
-                <button className={styles.button} style={buttonColor} onClick={prevWeek}>←</button>
+                <button className={styles.button} style={buttonColor} onClick={prevWeek}>&#11164;</button>
             </div>
             {renderDays()}
             <div className={styles.buttonWrapper}>
-                <button className={styles.button} style={buttonColor} onClick={nextWeek}>→</button>
+                <button className={styles.button} style={buttonColor} onClick={nextWeek}>&#11166;</button>
             </div>
         </div>
     )
