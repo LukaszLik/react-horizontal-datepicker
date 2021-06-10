@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "../src/components/DatePicker.module.css";
 import { addDays, addMonths, differenceInMonths, format, isSameDay, lastDayOfMonth, startOfMonth } from "date-fns";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 export default function DatePickerDist({
   endDate,
   selectDate,
@@ -148,13 +151,13 @@ export default function DatePickerDist({
     className: styles.buttonLeft,
     style: buttonColor,
     onClick: prevWeek
-  }, "\u2190")), renderDays(), /*#__PURE__*/React.createElement("div", {
+  }, <ArrowBackIosIcon/>)), renderDays(), /*#__PURE__*/React.createElement("div", {
     className: styles.buttonWrapper
   }, /*#__PURE__*/React.createElement("button", {
     className: styles.buttonRight,
     style: buttonColor,
     onClick: nextWeek
-  }, "\u2192")));
+  }, <ArrowForwardIosIcon/>)));
 }
 /*more pictures
 * example code sandbox
