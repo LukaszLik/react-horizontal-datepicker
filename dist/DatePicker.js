@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../src/components/DatePicker.module.css";
 import { addDays, addMonths, differenceInMonths, format, isSameDay, lastDayOfMonth, startOfMonth } from "date-fns";
-export default function DatePicker({
+export default function DatePickerDist({
   endDate,
   selectDate,
   getSelectedDay,
