@@ -145,13 +145,13 @@ export default function DatePicker({
   }, /*#__PURE__*/React.createElement("div", {
     className: styles.buttonWrapper
   }, /*#__PURE__*/React.createElement("button", {
-    className: styles.button,
+    className: styles.buttonLeft,
     style: buttonColor,
     onClick: prevWeek
   }, "\u2190")), renderDays(), /*#__PURE__*/React.createElement("div", {
     className: styles.buttonWrapper
   }, /*#__PURE__*/React.createElement("button", {
-    className: styles.button,
+    className: styles.buttonRight,
     style: buttonColor,
     onClick: nextWeek
   }, "\u2192")));
