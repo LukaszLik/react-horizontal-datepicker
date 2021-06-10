@@ -12,7 +12,7 @@
     background: inherit;
 }
 
-.button {
+.buttonRight {
     border: none;
     text-decoration: none;
     cursor: pointer;
@@ -27,7 +27,25 @@
     align-items: center;
     justify-content: center;
     padding: 0;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
+}
+
+.buttonLeft {
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 7px;
+    padding-left: 6px;
 }
 
 .dateListScrollable {
@@ -46,12 +64,13 @@
 .monthContainer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .monthYearLabel {
     align-self: flex-start;
     z-index: 3;
-    font-size: 15px;
+    font-size: 24px;
     font-weight: bold;
     position: sticky;
     top: 0;

@@ -10,6 +10,8 @@ import {
     lastDayOfMonth,
     startOfMonth
 } from "date-fns";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 export default function DatePicker({endDate, selectDate, getSelectedDay, color, labelFormat}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -124,11 +126,11 @@ export default function DatePicker({endDate, selectDate, getSelectedDay, color, 
     return (
         <div className={styles.container}>
             <div className={styles.buttonWrapper}>
-                <button className={styles.button} style={buttonColor} onClick={prevWeek}>&#11164;</button>
+                <button className={styles.buttonLeft} style={buttonColor} onClick={prevWeek}><ArrowBackIosIcon/></button>
             </div>
             {renderDays()}
             <div className={styles.buttonWrapper}>
-                <button className={styles.button} style={buttonColor} onClick={nextWeek}>&#11166;</button>
+                <button className={styles.buttonRight} style={buttonColor} onClick={nextWeek}><ArrowForwardIosIcon/></button>
             </div>
         </div>
     )
