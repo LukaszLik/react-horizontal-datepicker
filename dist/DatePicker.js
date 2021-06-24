@@ -61,19 +61,36 @@ export default function DatePickerDist({
       const month = startOfMonth(addMonths(startDate, i));
       start = i === 0 ? Number(format(startDate, dateFormat)) - 1 : 0;
       end = i === differenceInMonths(lastDate, startDate) ? Number(format(lastDate, "d")) : Number(format(lastDayOfMonth(month), "d"));
+      let k = 0;
 
       for (let j = start; j < end; j++) {
-        days.push( /*#__PURE__*/React.createElement("div", {
-          id: `${getId(addDays(startDate, j))}`,
-          className: styles.dateDayItem,
-          style: getStyles(addDays(month, j)),
-          key: addDays(month, j),
-          onClick: () => onDateClick(addDays(month, j))
-        }, /*#__PURE__*/React.createElement("div", {
-          className: styles.dayLabel
-        }, format(addDays(month, j), dayFormat)), /*#__PURE__*/React.createElement("div", {
-          className: styles.dateLabel
-        }, format(addDays(month, j), dateFormat))));
+        if (k > 2) {
+          days.push( /*#__PURE__*/React.createElement("div", {
+            id: `${getId(addDays(startDate, j))}`,
+            className: styles.dateDayItem,
+            style: getStyles(addDays(month, j)),
+            key: addDays(month, j),
+            onClick: () => onDateClick(addDays(month, j))
+          }, /*#__PURE__*/React.createElement("div", {
+            className: styles.dayLabel
+          }, format(addDays(month, j), dayFormat)), /*#__PURE__*/React.createElement("div", {
+            className: styles.dateLabel
+          }, format(addDays(month, j), dateFormat))));
+        } else{
+          days.push( /*#__PURE__*/React.createElement("div", {
+            id: `${getId(addDays(startDate, j))}`,
+            className: styles.dateDayItem,
+            style: getStyles(addDays(month, j)),
+            key: addDays(month, j),
+            onClick: () => onDateClick(addDays(month, j))
+          }, /*#__PURE__*/React.createElement("div", {
+            className: styles.prevDayLabel
+          }, format(addDays(month, j), dayFormat)), /*#__PURE__*/React.createElement("div", {
+            className: styles.prevDateLabel
+          }, format(addDays(month, j), dateFormat))));
+        }
+
+        k+=1;
       }
 
       months.push( /*#__PURE__*/React.createElement("div", {
