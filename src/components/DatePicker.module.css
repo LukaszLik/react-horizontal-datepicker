@@ -98,8 +98,21 @@
 .dayLabel {
     font-size: 12px;
     margin: 4px 0 0 0;
+    font-weight: bold;
 }
 
 .dateLabel {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.prevDayLabel {
+    color: gray;
+    font-size: 12px;
+    margin: 4px 0 0 0;
+}
+
+.prevDateLabel {
+    color: gray;
     font-size: 18px;
 }
