@@ -16,7 +16,7 @@ export default function DatePickerDist({
   const firstSection = {
     marginLeft: '40px'
   };
-  const startDate = new Date();
+  const startDate = new Date() - 259200000;
   const lastDate = addDays(startDate, endDate || 90);
   const primaryColor = color || 'rgb(54, 105, 238)';
   const selectedStyle = {
@@ -55,13 +55,13 @@ export default function DatePickerDist({
     const dateFormat = "d";
     const months = [];
     let days = [];
+    let k = 0;
 
     for (let i = 0; i <= differenceInMonths(lastDate, startDate); i++) {
       let start, end;
       const month = startOfMonth(addMonths(startDate, i));
       start = i === 0 ? Number(format(startDate, dateFormat)) - 1 : 0;
       end = i === differenceInMonths(lastDate, startDate) ? Number(format(lastDate, "d")) : Number(format(lastDayOfMonth(month), "d"));
-      let k = 0;
 
       for (let j = start; j < end; j++) {
         if (k > 2) {
