@@ -1,22 +1,33 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import styles from "../src/components/DatePicker.module.css";
-import { addDays, addMonths, differenceInMonths, format, isSameDay, lastDayOfMonth, startOfMonth } from "date-fns";
+import {
+  addDays,
+  addMonths,
+  differenceInMonths,
+  format,
+  isSameDay,
+  lastDayOfMonth,
+  startOfMonth,
+  subDays
+} from "date-fns";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 export default function DatePickerDist({
-  endDate,
-  selectDate,
-  getSelectedDay,
-  color,
-  labelFormat
+ endDate,
+ beginDate,
+ selectDate,
+ getSelectedDay,
+ color,
+ labelFormat
 }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const firstSection = {
     marginLeft: '40px'
   };
-  const startDate = new Date() - 259200000;
+  const startDate = new Date();
+  const firstDate = subDays(startDate, beginDate || 10);
   const lastDate = addDays(startDate, endDate || 90);
   const primaryColor = color || 'rgb(54, 105, 238)';
   const selectedStyle = {
@@ -56,15 +67,16 @@ export default function DatePickerDist({
     const months = [];
     let days = [];
     let k = 0;
+    let end_k = beginDate ? beginDate -1: 9;
 
-    for (let i = 0; i <= differenceInMonths(lastDate, startDate); i++) {
+    for (let i = 0; i <= differenceInMonths(lastDate, firstDate); i++) {
       let start, end;
-      const month = startOfMonth(addMonths(startDate, i));
-      start = i === 0 ? Number(format(startDate, dateFormat)) - 1 : 0;
+      const month = startOfMonth(addMonths(firstDate, i));
+      start = i === 0 ? Number(format(firstDate, dateFormat)) - 1 : 0;
       end = i === differenceInMonths(lastDate, startDate) ? Number(format(lastDate, "d")) : Number(format(lastDayOfMonth(month), "d"));
 
       for (let j = start; j < end; j++) {
-        if (k > 2) {
+        if (k > end_k) {
           days.push( /*#__PURE__*/React.createElement("div", {
             id: `${getId(addDays(startDate, j))}`,
             className: styles.dateDayItem,
@@ -125,6 +137,11 @@ export default function DatePickerDist({
       if (selectDate) {
         getSelectedDay(selectDate);
       } else {
+        let end = beginDate ? beginDate : 10;
+        for (let i = 0; i <= end - 5; i++) {
+          const e = document.getElementById('container');
+          e.scrollLeft += 90;
+        }
         getSelectedDay(startDate);
       }
     }
@@ -151,13 +168,13 @@ export default function DatePickerDist({
   const nextWeek = () => {
     const e = document.getElementById('container');
     const width = e ? e.getBoundingClientRect().width : null;
-    e.scrollLeft += width - 60;
+    e.scrollLeft += width/2 - 61;
   };
 
   const prevWeek = () => {
     const e = document.getElementById('container');
     const width = e ? e.getBoundingClientRect().width : null;
-    e.scrollLeft -= width - 60;
+    e.scrollLeft -= width/2 - 61;
   };
 
   return /*#__PURE__*/React.createElement("div", {
