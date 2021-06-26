@@ -60,7 +60,6 @@
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/preset-react": "^7.10.1",
-    "@magic/format": "^0.0.23",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1"
